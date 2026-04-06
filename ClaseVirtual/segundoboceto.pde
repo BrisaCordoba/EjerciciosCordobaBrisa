@@ -5,6 +5,6 @@
 void draw(){
   background(60); //Limpia el lienzo 
   if(mousePressed){ //si tipo aprieto el mouse dibuja 
-    line(width-mouseX, height-mouseY, width-pmouseX, height-pmouseY); //El efecto espejo del ultimo video
+    line(mouseX,mouseY, width-pmouseX, pmouseY); //El efecto espejo del ultimo video
   }
 }
