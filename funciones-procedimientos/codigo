@@ -8,31 +8,24 @@ void draw() {
   }
 }
  
-void dibujochiquito(float x, float y, width, height) { 
-  fill(#905AA7);
-  rect(x, y, width/2, height/2);
-  
-  fill(#5AA791);
-  rect(x + width/2, y, width/2, height/2);
-  
-  float dw = width * 0.30;
-  float dh = height * 0.10;
-  
-  fill(#8B0B0B);
-  ellipse(x + width * 0.25, y + height * 0.25, dw, dh);
-   
-  line(x, y + height/2, x + width, y + height/2);
-  
-  fill(#FA00FF);
-  rect(x + (width * 0.25) - dw/2, y + height * 0.75, dw, dh);
-  
-  fill(#00F001);
-  circle(x + width * 0.75, y + height * 0.25, dh);
-   
-  point(x + width * 0.80, y + height * 0.15); 
-  
-  line(x + width/2, y, x + widht/2, y + height);
-  
-  fill(#FF8912);
-  triangle(x + width * 0.60, y + height * 0.90, x + width * 0.75, y + height * 0.60, x + width * 0.90, y + height * 0.90);
+void dibujochiquito(float x, float y, float width, float height) {  
+fill(#905AA7);
+rect(0, 0, width/2, height/2);
+fill(#5AA791);
+rect(width/2, 0, width, height/2);
+float dw = width * 0.30, dh = width * 0.10;
+fill(#8B0B0B);
+ellipse(width * 0.25, height* 0.25, dw, dh);
+fill(#33AFAE);
+line(0, height/2, width, height/2);
+fill(#FA00FF);
+rect(width * 0.25 - dw / 2, height * 0.75, dw, dh);
+fill(#00F001);
+circle(width * 0.75, height * 0.25, dh);
+fill(#050205);
+point(width * 0.80, height * 0.15);
+fill(#FA00FF);
+line(width/2 , 0, width / 2, height);
+fill(#FF8912);
+triangle(width * 0.60, height * 0.90, width * 0.75, height * 0.60, width * 0.90, height * 0.90);
 }
