@@ -1,0 +1,38 @@
+void setup() {
+  size(800, 800);
+}
+
+void draw() {  
+  if (mousePressed) {
+    dibujochiquito(mouseX, mouseY, 100, 100);
+  }
+}
+ 
+void dibujochiquito(float x, float y, width, height) { 
+  fill(#905AA7);
+  rect(x, y, width/2, height/2);
+  
+  fill(#5AA791);
+  rect(x + width/2, y, width/2, height/2);
+  
+  float dw = width * 0.30;
+  float dh = height * 0.10;
+  
+  fill(#8B0B0B);
+  ellipse(x + width * 0.25, y + height * 0.25, dw, dh);
+   
+  line(x, y + height/2, x + width, y + height/2);
+  
+  fill(#FA00FF);
+  rect(x + (width * 0.25) - dw/2, y + height * 0.75, dw, dh);
+  
+  fill(#00F001);
+  circle(x + width * 0.75, y + height * 0.25, dh);
+   
+  point(x + width * 0.80, y + height * 0.15); 
+  
+  line(x + width/2, y, x + widht/2, y + height);
+  
+  fill(#FF8912);
+  triangle(x + width * 0.60, y + height * 0.90, x + width * 0.75, y + height * 0.60, x + width * 0.90, y + height * 0.90);
+}
