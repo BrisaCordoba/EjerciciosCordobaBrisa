@@ -1,0 +1,44 @@
+class Cuadrado {
+  PVector pos;
+  float w, h;
+
+  Cuadrado(float x, float y, float w, float h) {
+    pos = new PVector(x, y);
+    this.w = w;
+    this.h = h;
+  }
+
+  void mover() {
+    pos.x -= 3;
+  }
+
+  void mostrar() {
+    fill(0);
+    noStroke();
+    rect(pos.x, pos.y, w, h);
+  }
+
+  boolean colisiona(Pelota p) {
+    float radio = p.tam / 2;
+
+
+    float cercanoX = p.pos.x;
+    if (cercanoX < pos.x) {
+      cercanoX = pos.x;
+    } else if (cercanoX > pos.x + w) {
+      cercanoX = pos.x + w;
+    }
+
+    float cercanoY = p.pos.y;
+    if (cercanoY < pos.y) {
+      cercanoY = pos.y;
+    } else if (cercanoY > pos.y + h) {
+      cercanoY = pos.y + h;
+    }
+
+    float distX = p.pos.x - cercanoX;
+    float distY = p.pos.y - cercanoY;
+
+    return (distX * distX + distY * distY) < (radio * radio);
+  }
+}
