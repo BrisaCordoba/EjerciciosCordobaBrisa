@@ -1,0 +1,38 @@
+class Pelota {
+  PVector pos;
+  PVector vel;
+  PVector acc;
+  float tam;
+
+  Pelota(float x, float y) {
+    pos = new PVector(x, y);
+    vel = new PVector(0, 0);
+    acc = new PVector(0, 0);
+    tam = 30;
+  }
+
+  void addFuerza(PVector f) {
+    acc.add(f);
+  }
+
+  void mover() {
+    vel.add(acc);
+
+
+    if (vel.y > 8) {
+      vel.y = 8;
+    }
+    if (vel.y < -8) {
+      vel.y = -8;
+    }
+
+    pos.add(vel);
+    acc.mult(0);
+  }
+
+  void mostrar() {
+    fill(0);
+    noStroke();
+    ellipse(pos.x, pos.y, tam, tam);
+  }
+}
