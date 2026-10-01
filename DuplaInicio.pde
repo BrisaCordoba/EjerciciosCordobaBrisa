@@ -1,0 +1,65 @@
+ArrayList <Tubos> tubos;
+
+Bird bird;
+
+boolean jugando = false;
+boolean colision = false;
+
+void setup() {
+  size(800, 600);
+  bird = new Bird();
+
+  tubos = new ArrayList<Tubos>();
+  tubos.add(new Tubos());
+}
+
+void draw() {
+
+  if (colision == true) {
+    background(255, 50, 50);
+  } else {
+    background(178, 255, 255);
+  }
+  for (int i = tubos.size() - 1; i >= 0; i--) {
+    Tubos t = tubos.get(i);
+    if (jugando) {
+      t.mover();
+    }
+    t.mostrar();
+
+    if (t.colision(bird) == true) {
+      colision = true;
+      jugando = false;
+    }
+
+    if (t.salio()) {
+      tubos.remove(i);
+      tubos.add(new Tubos());
+    }
+  }
+  if (jugando) {
+    bird.mover();
+  }
+  bird.mostrar();
+}
+
+void keyPressed() {
+  if (key == ' ') {
+    if (colision == true) {
+      empieza();
+    } else {
+      if (jugando == false) {
+        jugando = true;
+      }
+      bird.saltar();
+    }
+  }
+}
+
+void empieza() {
+  bird = new Bird();
+  tubos.clear();
+  tubos.add(new Tubos());
+  jugando = false;
+  colision = false;
+}
