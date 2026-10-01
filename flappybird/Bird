@@ -1,0 +1,25 @@
+class Bird{
+  PVector pos;
+  PVector vel;
+  PVector gravedad;
+  float tam;
+  
+  Bird(){
+    pos = new PVector(50, height/2);
+    vel = new PVector(0, 0);
+    gravedad = new PVector(0, 0.5);
+    tam = 20;
+  }
+  
+  void mover(){
+    vel.add(gravedad); 
+    pos.add(vel);
+  }
+  void saltar(){
+    vel.y = -8;
+  }
+  void mostrar(){
+    fill(255, 200, 0);
+    ellipse(pos.x, pos.y, tam, tam);
+    }
+}
